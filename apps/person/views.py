@@ -30,7 +30,6 @@ def create(request):
 		errors.append('City must be at least 4 characters!')
 	if not errors:
 		person.save()
-		print "Success!"
 		return redirect('/')
 	else:
 		return render(request, 'person/new.html', {'errors': errors})
@@ -65,7 +64,6 @@ def update(request):
 		update_errors.append('City must be at least 4 characters!')
 	if not update_errors:
 		person.save()
-		print "Success!"
 		return redirect('/')
 	else:
 		context = { 'update_errors': update_errors, 'person': person }
