@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Make A New Person</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+	<br>
+	<a href="/"><button class="btn btn-primary">Home</button></a>
+		<div class="errors">
+			{% for error in errors %}
+				{{error}}
+				<br>
+			{%endfor%}
+		</div>
+		<hr>
+		<h4>Add A New Person</h4>
+		<hr>
+	<div class="col-lg-1 col-offset-6 centered">
+		<form action="/create" method="post">
+			{%csrf_token%}
+			First Name: <input type="text" name="first_name">
+			Last Name: <input type="text" name="last_name">
+			City: <input type="text" name="city">
+			Zip: <input type="number" name="zip">
+			<input type="submit" value="Add" class="btn btn-danger">
+		</form>
+	</div>
+	</div>
+</body>
+</html>

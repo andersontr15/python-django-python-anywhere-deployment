@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>All Persons</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+	<br>
+	<a href="/new"><button class="btn btn-success">Create a new person</button></a>
+	<hr>
+		<center>
+		<h3>All Persons</h3>
+		</center>
+		<hr>
+		<table class="table class table-bordered table-striped table-hovered">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Zip Code</th>
+					<th>City</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for person in persons %}
+				<tr>
+					<td><a href="/person/{{person.id}}/profile">{{person.first_name}}</a></td>
+					<td>{{person.last_name}}</td>
+					<td>{{person.zip_code}}</td>
+					<td>{{person.city}}</td>
+					<td>
+					<a href="/person/{{person.id}}/edit"><button class="btn btn-success">Edit</button></a>
+					<a href="/person/{{person.id}}/delete"><button class="btn btn-danger">Delete</button></a>	
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

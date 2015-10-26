@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{person.first_name}}'s Profile Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<a href="/">Home</a>
+		<span>|</span>
+		<a href="/person/{{person.id}}/edit">Edit User</a>
+		<span>|</span>
+		<a href="/person/{{person.id}}/delete">Delete User</a>
+		<hr>
+		<h4>Welcome to {{person.first_name}}'s Profile!</h4>
+		<br>
+		First Name: {{person.first_name}}
+		<br>
+		Last Name: {{person.last_name}}
+		<br>
+		City: {{person.city}}
+		<br>
+		Zip Code: {{person.zip_code}}
+	</div>	
+</body>
+</html>
