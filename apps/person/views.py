@@ -7,8 +7,6 @@ from django.utils import timezone
 from datetime import datetime
 
 def index(request):
-	print request.GET
-	print request.method
 	persons = Person.objects.all().order_by('zip_code')
 	context = {
 	'persons': persons,
@@ -16,7 +14,6 @@ def index(request):
 	return render(request, 'person/index.html', context)
 
 def create(request):
-	print "Creating a person"
 	errors = []
 	person = Person()
 	person.first_name = request.POST.get('first_name')
@@ -39,23 +36,19 @@ def create(request):
 		return render(request, 'person/new.html', {'errors': errors})
 	
 def new(request):
-	print "Going to create a new person"
 	return render(request, 'person/new.html')
 
 def delete(request, person_id):
-	print "deleting person"
 	person = Person.objects.get(id=person_id)
 	person.delete()
 	return redirect('/')
 
 def edit(request, person_id):
-	print "editing person"
 	person = Person.objects.get(id=person_id)
 	context = { 'person': person }
 	return render(request, 'person/edit.html', context )
 
 def update(request):
-	print "updating person"
 	update_errors = []
 	person = Person.objects.get(id=request.POST.get('id'))
 	person.first_name = request.POST.get('first_name')
@@ -79,7 +72,6 @@ def update(request):
 		return render(request, 'person/edit.html', context)
 
 def profile(request, person_id):
-	print "viewing person"
 	person = Person.objects.get(id=person_id)
 	context = { 'person': person }
 	return render(request, 'person/profile.html', context)
